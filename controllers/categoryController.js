@@ -6,7 +6,7 @@ const categoryHandler = async (req,res) =>{
         const categories = await Category.find({})
         res.json(categories)
     }catch(err){
-        res.status(404).json({message:"Colud not find categories"})
+        res.status(404).json({message:"Could not find categories"})
     }
 }
 

@@ -1,20 +1,20 @@
-const express = require('express')
+const express = require('express');
 
-const verifyUser = require('../middleware/verifyuser')
+const verifyUser = require("../middleware/verifyuser");
 
-const wishlistController = require('../controllers/wishlistController')
+const wishlistController = require("../controllers/wishlistController");
 
-const {createWishlistHandler,deleteWishlistHandler,getWishlistHandler} = wishlistController
+const { createWishlistHandler, deleteWishlistHandler, getWishlistHandler } = wishlistController;
 
-const router = express.Router()
-
-router.route('/')
-    .post( verifyUser , createWishlistHandler)
-
-router.route("/:id")
-    .delete( verifyUser ,deleteWishlistHandler)
+const router = express.Router();
 
 router.route("/")
-        .get( verifyUser ,getWishlistHandler)
+    .post(createWishlistHandler)
 
-module.exports=router;
+router.route("/:id")
+    .delete( deleteWishlistHandler)
+
+router.route("/")
+    .get(getWishlistHandler)
+
+module.exports = router; 

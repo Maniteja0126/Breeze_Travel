@@ -9,7 +9,7 @@ const getAllHotelHandler = async(req,res) => {
     }else{
         hotels=await  Hotel.find({})
     }
-     hotels =await Hotel.find({})
+    
     hotels ? res.json(hotels) : res.status(404).statusMessage({message: "No data found"})
    }catch(err){
     console.log(err)
